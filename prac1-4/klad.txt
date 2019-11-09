@@ -1,0 +1,25 @@
+        ldr r4, ='Z'
+        ldr r5, ='z'
+        ldr r6, ='A'
+        ldr r7, ='a'
+        mov r2, r0
+        mov r1, r0
+        sub r1, R0, r6
+        blt return
+        sub r1, r0, r4
+        bgt return
+        sub r3, r0, r6
+        add r2, r3,r7
+        CMP r2, r1
+        BEQ return
+
+        mov r1, r0
+        sub r1, R0, r7
+        blt return
+        sub r1, r0, r5
+        bgt return
+        sub r3, r0, r7
+        add r2, r3,r6
+        CMP r2, r1
+        BEQ return
+        pop { r0 , pc}
