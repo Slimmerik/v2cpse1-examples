@@ -1,0 +1,16 @@
+CXXFLAGS += -std=c++17
+
+PROJECT := generator
+MODULES := melody note note_player note_player_gpio note_player_pc_print rtttl_player
+gcc := C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/g++
+ln := C:/Program Files (x86)/mingw-w64/i686-8.1.0-posix-dwarf-rt_v6-rev0/mingw32/bin/g++
+rm := rm -f
+.PHONY: build clean
+TARGET := $(PROJECT).exe
+HEADERS := $(patsubst %,%.h,$(MODULES))
+OBJECTS := $(PROJECT).o $(patsubst %,%.o,$(MODULES))
+include $..//../hwlib/library/hwlib.cpp'
+build: $(TARGET)
+clean: $(rm) $(TARGET) $(OBJECTS)
+$(TARGET): $(OBJECTS) $(ln) -o $@ $(OBJECTS)
+%.o: %.cpp $(HEADERS) $(gcc) -c -o $@ $<
